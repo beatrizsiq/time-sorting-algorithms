@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define TAM 501
 
 int main()
 {
@@ -11,6 +10,47 @@ int main()
     clock_t inicio, fim;
 
     arquivo = fopen("numeros2.txt", "r");
+
+    if (!arquivo)
+    {
+        printf("Problema ao abrir o arquivo!\n");
+        return;
+    }
+
+    while (!feof(arquivo))
+    {
+        fscanf(arquivo, "%d", &vetor[i]);
+        i++;
+    }
+
+    fclose(arquivo);
+
+    // insertionSort(vetor);
+    // selectionSort(vetor);
+    //shellSort(vetor);
+    //quickSort(vetor, 0, TAM-1);
+    //bubbleSort(vetor);
+    inicio = clock();
+    heapSort(vetor);
+    fim = clock();
+    double tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
+
+    for (int j = 1; j <= 500; j++)
+    {
+        printf("Linha %d: %d\n", j, vetor[j]);
+    }
+
+    printf("Tempo de execucao Heap Sort: %lf", tempo);
+}
+
+void ordenacao_500_posicoes(){
+
+    FILE *arquivo;
+    int vetor[500];
+    int i = 1;
+    clock_t inicio, fim;
+
+    arquivo = fopen("numeros.txt", "r");
 
     if (!arquivo)
     {
