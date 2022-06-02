@@ -1,0 +1,39 @@
+.navbar {
+    background-color: snow;
+    color: #8ec3ce;
+    text-align: center;
+}
+
+thead {
+    background-color: #88bbd6;
+    color: white;
+}
+
+body {
+    background-color: #e9e9e9;
+}
+
+table, th, td {
+    font-family: Century Gothic;
+    border: 2px solid #e9e9e9;
+    border-collapse: collapse;
+    text-align: center;
+
+}
+
+tbody {
+    background-color: snow;
+    color: #565656;
+}
+
+h3, h5, p {
+    font-family: Century Gothic;
+}
+p {
+    font-size: 18px;
+}
+
+.card-header{
+    background-color:snow;
+    border:0px;
+}

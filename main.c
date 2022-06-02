@@ -10,21 +10,41 @@ main()
 
     fprintf(html_arq, "<!DOCTYPE html><html><head><title>Tempo de Ordenação</title>");
     fprintf(html_arq, "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">");
-    fprintf(html_arq, "</head><body>");
-    fprintf(html_arq, "<div><h1 class=\"display-1 bg-primary\">Oi<h1></div>");
+    fprintf(html_arq, "<link rel=\"stylesheet\" href=\"index.css\">");
+    fprintf(html_arq, "</head><body	>");
+    // nav
+    fprintf(html_arq, "<nav class=\"navbar\"><div class=\"collapse navbar-collapse d-flex justify-content-center \"><h3 class=\"navbar-text mb-2 \">Tempo de execução</h3></div></nav>");
+    fprintf(html_arq, "<div class=\" d-flex justify-content-center mt-5\"><h3>Algoritmos de Ordenação</h3></div>");
+    // table
+    fprintf(html_arq, "<div class=\"container mt-3 col-12 \" >");
+    fprintf(html_arq, "<table class=\"table table-borderless\"><thead></tr><tr ><th scope=\"col\">Posições</th><th scope=\"col\">Bubble Sort</th><th scope=\"col\">Selection Sort</th><th scope=\"col\">Insertion Sort</th><th scope=\"col\">Shell Sort</th><th scope=\"col\">Quick Sort</th><th scope=\"col\">Heap Sort</th></thead>");
+    fprintf(html_arq, " ", ordenacao_500_posicoes());
+    fprintf(html_arq, " ", ordenacao_5000_posicoes());
+    fprintf(html_arq, " ", ordenacao_100000_posicoes());
+    fprintf(html_arq, " ", corpo_informacoes_html());
+    fclose(html_arq);
+
+}
+void corpo_informacoes_html(){
+    FILE *html_arq;
+    
+    html_arq = fopen("index.html", "a");
+
+    fprintf(html_arq, "<div class=\"container mt-5\"><div class=\"card\"><h5 class=\"card-header\">Recursos Usados</h5><div class=\"card-body\">");
+    fprintf(html_arq, "<p class=\"card-text\">With supporting text below as a natural lead-in to additional content.</p></div></div></div>");
     fprintf(html_arq, "</body></html");
 
-    fclose(html_arq);
 }
-
-
 
 void ordenacao_500_posicoes()
 {
     FILE *arquivo;
+    FILE *html_arq;
 
-    clock_t inicio_qsort, fim_qsort;
-    double tempo_qsort;
+    html_arq = fopen("index.html", "a");
+
+    clock_t i_quick, f_quick, i_bubble, f_bubble, i_selection, f_selection, i_insertion, f_insertion, i_shell, f_shell, i_heap, f_heap;
+    double t_quick, t_bubble, t_heap, t_selection, t_insertion, t_shell;
 
     int tam = 500;
     int vetor[tam];
@@ -46,26 +66,55 @@ void ordenacao_500_posicoes()
 
     fclose(arquivo);
 
-    heapSort(vetor, tam);
-
-    inicio_qsort = clock();
+    i_quick = clock();
     quickSort(vetor, tam, 1, tam);
-    fim_qsort = clock();
-    tempo_qsort = (double)(fim_qsort - inicio_qsort) / CLOCKS_PER_SEC;
-    printf("\nTempo de execucao Quick Sort: %lf", tempo_qsort);
+    f_quick = clock();
+    t_quick = (double)(f_quick - i_quick) / CLOCKS_PER_SEC;
 
-    shellSort(vetor, tam);
-    selectionSort(vetor, tam);
-    insertionSort(vetor, tam);
+    i_bubble = clock();
     bubbleSort(vetor, tam);
+    f_bubble = clock();
+    t_bubble = (double)(f_bubble - i_bubble) / CLOCKS_PER_SEC;
+
+    i_selection = clock();
+    selectionSort(vetor, tam);
+    f_selection = clock();
+    t_selection = (double)(f_selection - i_selection) / CLOCKS_PER_SEC;
+
+    i_insertion = clock();
+    insertionSort(vetor, tam);
+    f_insertion = clock();
+    t_insertion = (double)(f_insertion - i_insertion) / CLOCKS_PER_SEC;
+
+    i_shell = clock();
+    shellSort(vetor, tam);
+    f_shell = clock();
+    t_shell = (double)(f_shell - i_shell) / CLOCKS_PER_SEC;
+
+    i_heap = clock();
+    heapSort(vetor, tam);
+    f_heap = clock();
+    t_heap = (double)(f_heap - i_heap) / CLOCKS_PER_SEC;
+
+    fprintf(html_arq, "<tbody><tr><th scope=\"row\" class=\"posicoes\">500</th>");
+    fprintf(html_arq, "<td>%.3lf</td>", t_bubble);
+    fprintf(html_arq, "<td>%.3lf</td>", t_selection);
+    fprintf(html_arq, "<td>%.3lf</td>", t_insertion);
+    fprintf(html_arq, "<td>%.3lf</td>", t_shell);
+    fprintf(html_arq, "<td>%.3lf</td>", t_quick);
+    fprintf(html_arq, "<td>%.3lf</td>", t_heap);
+    fprintf(html_arq, "</tr>");
 }
 
-void ordencao_5000_posicoes()
+void ordenacao_5000_posicoes()
 {
     FILE *arquivo;
+    FILE *html_arq;
 
-    clock_t inicio_qsort, fim_qsort;
-    double tempo_qsort;
+    html_arq = fopen("index.html", "a");
+
+    clock_t i_quick, f_quick, i_bubble, f_bubble, i_selection, f_selection, i_insertion, f_insertion, i_shell, f_shell, i_heap, f_heap;
+    double t_quick, t_bubble, t_heap, t_selection, t_insertion, t_shell;
 
     int tam = 5000;
     int vetor[tam];
@@ -87,30 +136,121 @@ void ordencao_5000_posicoes()
 
     fclose(arquivo);
 
-    heapSort(vetor, tam);
-
-    inicio_qsort = clock();
+    i_quick = clock();
     quickSort(vetor, tam, 1, tam);
-    fim_qsort = clock();
-    tempo_qsort = (double)(fim_qsort - inicio_qsort) / CLOCKS_PER_SEC;
+    f_quick = clock();
+    t_quick = (double)(f_quick - i_quick) / CLOCKS_PER_SEC;
 
-    printf("\nTempo de execucao Quick Sort: %lf", tempo_qsort);
-
-    shellSort(vetor, tam);
-    selectionSort(vetor, tam);
-    insertionSort(vetor, tam);
+    i_bubble = clock();
     bubbleSort(vetor, tam);
+    f_bubble = clock();
+    t_bubble = (double)(f_bubble - i_bubble) / CLOCKS_PER_SEC;
+
+    i_selection = clock();
+    selectionSort(vetor, tam);
+    f_selection = clock();
+    t_selection = (double)(f_selection - i_selection) / CLOCKS_PER_SEC;
+
+    i_insertion = clock();
+    insertionSort(vetor, tam);
+    f_insertion = clock();
+    t_insertion = (double)(f_insertion - i_insertion) / CLOCKS_PER_SEC;
+
+    i_shell = clock();
+    shellSort(vetor, tam);
+    f_shell = clock();
+    t_shell = (double)(f_shell - i_shell) / CLOCKS_PER_SEC;
+
+    i_heap = clock();
+    heapSort(vetor, tam);
+    f_heap = clock();
+    t_heap = (double)(f_heap - i_heap) / CLOCKS_PER_SEC;
+
+    fprintf(html_arq, "<tr><th scope=\"row\" class=\"posicoes\">5000</th>");
+    fprintf(html_arq, "<td>%.3lf</td>", t_bubble);
+    fprintf(html_arq, "<td>%.3lf</td>", t_selection);
+    fprintf(html_arq, "<td>%.3lf</td>", t_insertion);
+    fprintf(html_arq, "<td>%.3lf</td>", t_shell);
+    fprintf(html_arq, "<td>%.3lf</td>", t_quick);
+    fprintf(html_arq, "<td>%.3lf</td>", t_heap);
+    fprintf(html_arq, "</tr>");
 }
 
-// Métodos de Ordenação:
+void ordenacao_100000_posicoes()
+{
+    FILE *arquivo;
+    FILE *html_arq;
+
+    html_arq = fopen("index.html", "a");
+
+    clock_t i_quick, f_quick, i_bubble, f_bubble, i_selection, f_selection, i_insertion, f_insertion, i_shell, f_shell, i_heap, f_heap;
+    double t_quick, t_bubble, t_heap, t_selection, t_insertion, t_shell;
+
+    int tam = 100000;
+    int vetor[tam];
+    int i = 1;
+
+    arquivo = fopen("numeros.txt", "r");
+
+    if (!arquivo)
+    {
+        printf("Problema ao abrir o arquivo!\n");
+        return;
+    }
+
+    while (i <= tam)
+    {
+        fscanf(arquivo, "%d", &vetor[i]);
+        i++;
+    }
+
+    fclose(arquivo);
+
+    i_quick = clock();
+    quickSort(vetor, tam, 1, tam);
+    f_quick = clock();
+    t_quick = (double)(f_quick - i_quick) / CLOCKS_PER_SEC;
+
+    i_bubble = clock();
+    bubbleSort(vetor, tam);
+    f_bubble = clock();
+    t_bubble = (double)(f_bubble - i_bubble) / CLOCKS_PER_SEC;
+
+    i_selection = clock();
+    selectionSort(vetor, tam);
+    f_selection = clock();
+    t_selection = (double)(f_selection - i_selection) / CLOCKS_PER_SEC;
+
+    i_insertion = clock();
+    insertionSort(vetor, tam);
+    f_insertion = clock();
+    t_insertion = (double)(f_insertion - i_insertion) / CLOCKS_PER_SEC;
+
+    i_shell = clock();
+    shellSort(vetor, tam);
+    f_shell = clock();
+    t_shell = (double)(f_shell - i_shell) / CLOCKS_PER_SEC;
+
+    i_heap = clock();
+    heapSort(vetor, tam);
+    f_heap = clock();
+    t_heap = (double)(f_heap - i_heap) / CLOCKS_PER_SEC;
+
+    fprintf(html_arq, "<tr><th scope=\"row\" class=\"posicoes\">100000</th>");
+    fprintf(html_arq, "<td>%.3lf</td>", t_bubble);
+    fprintf(html_arq, "<td>%.3lf</td>", t_selection);
+    fprintf(html_arq, "<td>%.3lf</td>", t_insertion);
+    fprintf(html_arq, "<td>%.3lf</td>", t_shell);
+    fprintf(html_arq, "<td>%.3lf</td>", t_quick);
+    fprintf(html_arq, "<td>%.3lf</td>", t_heap);
+    fprintf(html_arq, "</tr></tbody></table></div>");
+}
+// metodos de ordenacao
 
 void bubbleSort(int vet[], int TAM)
 {
     int i, j, aux;
-    clock_t inicio, fim;
-    double tempo;
 
-    inicio = clock();
     for (i = 0; i < TAM - 1; i++)
     {
         for (j = i + 1; j < TAM; j++)
@@ -123,18 +263,12 @@ void bubbleSort(int vet[], int TAM)
             }
         }
     }
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
-    printf("\nTempo de Execucao Bubble Sort: %lf", tempo);
 }
 
 void insertionSort(int vet[], int TAM)
 {
     int i, j, chave;
-    clock_t inicio, fim;
-    double tempo;
 
-    inicio = clock();
     for (i = 1; i < TAM; i++)
     {
         chave = vet[i];
@@ -146,18 +280,12 @@ void insertionSort(int vet[], int TAM)
         }
         vet[j + 1] = chave;
     }
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
-    printf("\nTempo de Execucao Insertion Sort: %lf", tempo);
 }
 
 void selectionSort(int vet[], int TAM)
 {
     int i, j, min, aux;
-    clock_t inicio, fim;
-    double tempo;
 
-    inicio = clock();
     for (i = 0; i < (TAM - 1); i++)
     {
         min = i;
@@ -173,19 +301,13 @@ void selectionSort(int vet[], int TAM)
             vet[min] = aux;
         }
     }
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
-    printf("\nTempo de Execucao Selection Sort: %lf", tempo);
 }
 
 void shellSort(int vet[], int TAM)
 {
 
     int h = 1, valor, j, i;
-    clock_t inicio, fim;
-    double tempo;
 
-    inicio = clock();
     do
     {
         h = (3 * h) + 1;
@@ -205,10 +327,6 @@ void shellSort(int vet[], int TAM)
             vet[j + h] = valor;
         }
     } while (h > 1);
-
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
-    printf("\nTempo de Execucao ShellSort: %lf", tempo);
 }
 
 void quickSort(int vetor[], int tam, int inicio, int fim)
@@ -249,10 +367,7 @@ void quickSort(int vetor[], int tam, int inicio, int fim)
 void heapSort(int vetor[], int TAM)
 {
     int i, pai, filho, aux, n;
-    clock_t inicio, fim;
-    double tempo;
 
-    inicio = clock();
     i = TAM / 2;
     n = TAM;
     while (1)
@@ -287,7 +402,4 @@ void heapSort(int vetor[], int TAM)
         }
         vetor[pai] = aux;
     }
-    fim = clock();
-    tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
-    printf("Tempo de Execucao HeapSort: %lf", tempo);
 }
