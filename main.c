@@ -19,16 +19,17 @@ main()
 
     html_arq = fopen("index.html", "w");
 
-    fprintf(html_arq, "<!DOCTYPE html><html lang=\"pt-br\"><head><title>Tempo de OrdenaÃ§Ã£o</title><meta charset=\"UTF-8\">");
+    fprintf(html_arq, "<!DOCTYPE html><html lang=\"pt-br\"><head><title>Tempo de Ordenação</title><meta charset=\"UTF-8\">");
     fprintf(html_arq, "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">");
     fprintf(html_arq, "<link rel=\"stylesheet\" href=\"index.css\">");
     fprintf(html_arq, "</head><body	>");
     // nav
-    fprintf(html_arq, "<nav class=\"collapse navbar navbar-collapse d-flex justify-content-center\"><div class=\"navbar-nav\"><h3 class=\"navbar-text mb-2 \">Tempo de execuÃ§Ã£o</h3></div></nav>");
-    fprintf(html_arq, "<div class=\" d-flex justify-content-center mt-5\"><h3>Algoritmos de OrdenaÃ§Ã£o</h3></div>");
+    fprintf(html_arq, "<nav class=\"navbar sticky-top navbar-expand-lg  d-flex \"> <div class=\"container-fluid\"> <a class=\"navbar-brand\" href=\"index.html\">Tempo de Execução</a>");
+    fprintf(html_arq, "<div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> <div class=\"navbar-nav\"> <a class=\"nav-link active\" aria-current=\"page\" href=\"#sobreSection\">Sobre</a> <a class=\"nav-link\" href=\"#criadoraSection\">Criadora</a> </div></div></div></nav>");
+    fprintf(html_arq, "<div class=\" d-flex justify-content-center mt-5\"><h3>Algoritmos de Ordenação</h3></div>");
     // table
     fprintf(html_arq, "<div class=\"container mt-3 col-12 \" >");
-    fprintf(html_arq, "<table class=\"table table-borderless\"><thead></tr><tr ><th scope=\"col\">PosiÃ§Ãµes</th><th scope=\"col\" ><a href = \"https://blog.betrybe.com/tecnologia/bubble-sort-tudo-sobre/\">Bubble Sort</a></th><th scope=\"col\">Selection Sort</th><th scope=\"col\">Insertion Sort</th><th scope=\"col\">Shell Sort</th><th scope=\"col\">Quick Sort</th><th scope=\"col\">Heap Sort</th></thead>");
+    fprintf(html_arq, "<table class=\"table table-borderless\"><thead></tr><tr ><th scope=\"col\">Posições</th><th scope=\"col\" ><a class=\"table-link\" href = \"https://blog.betrybe.com/tecnologia/bubble-sort-tudo-sobre/\">Bubble Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/selection-sort/\">Selection Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/insertion-sort/\">Insertion Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Shell_sort\">Shell Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Quick_sort\">Quick Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Heap_sort\">Heap Sort</a></th></tr></thead>");
     fprintf(html_arq, " ", ordenacao_500_posicoes());
     fprintf(html_arq, " ", ordenacao_5000_posicoes());
     fprintf(html_arq, " ", ordenacao_100000_posicoes());
@@ -42,13 +43,13 @@ void corpo_informacoes_html(void){
     
     html_arq = fopen("index.html", "a");
 
-    fprintf(html_arq, "<div class=\"container mt-5\"><div class=\"card border-0 \"><h5 class=\"card-header\">SOBRE</h5><div class=\"card-body border-0\">");
-    fprintf(html_arq, "<p class=\"card-text\">Esse HTML foi gerado em C, o programa estÃ¡ realizando a leitura de um arquivo de nÃºmeros inteiros e alocando-os em um vetor, para que seja realizada a ordenaÃ§Ã£o com os mÃ©todos supracitados. ApÃ³s isso, foi gerado este arquivo HTML para impressÃ£o do tempo de execuÃ§Ã£o de cada mÃ©todo.</p></div></div></div>");
-	fprintf(html_arq, "<div class=\"container mt-5\"><div class=\"card border-0 \"><h5 class=\"card-header\">CRIADORA</h5><div class=\"card-body border-0\">");
+    fprintf(html_arq, " <section id=\"sobreSection\" class=\"default-sections-min-height col-12 py-5\"><div class=\"container mt-5\"><div class=\"card border-0 \"><h5 class=\"card-header\">SOBRE</h5><div class=\"card-body border-0\">");
+    fprintf(html_arq, "<p class=\"card-text\">O <a class=\"link-algoritmo\"href=\"https://github.com/beatrizsiq/time-sorting-algorithms\">algoritmo</a> está realizando a leitura de outro arquivo com números inteiros e alocando-os em um vetor, para que seja realizada a ordenação com os métodos supracitados. Após isso, foi gerado este arquivo HTML para impressão do tempo de execução de cada método.</p><p>Tecnologias utilizadas: Linguagem C, HTML, CSS e Bootstrap!</p><p>Trabalho para a disciplina de Ordenação e Pesquisa.</p></div></div></div></section>");
+	fprintf(html_arq, "<section id=\"criadoraSection\" class=\"default-sections-min-height col-12 py-5\"> <div class=\"container mt-5\"><div class=\"card border-0 \"><h5 class=\"card-header\">CRIADORA</h5><div class=\"card-body border-0\">");
 	fprintf(html_arq, "<div class=\"col-12 d-flex justify-content-center\"><img src=\"beatrizPicture.jpg\" alt=\"Beatriz Siqueira\" class=\"rounded-circle w-25\"></div>");
-	fprintf(html_arq, "<div class=\"col-12 py-2 mt-3 text-left\"><p>OlÃ¡, me chamo Beatriz Siqueira! Estou no 3Âº PerÃ­odo do curso de Sistemas de InformaÃ§Ã£o. Atualmente trabalho com suporte e desenvolvimento em banco de dados Oracle</p><p>Atualmente aprendendo: PHP, JavaScript, HTML, CSS e Bootstrap!</p></div>");
-	fprintf(html_arq, "<div class=\"col-12 py-2 mt-3 text-left\"><p>Contato: <ul> <li><a href=\"https://github.com/beatrizsiq\" class=\"git\">Github</a></li> <li><a href=\"beatrizsiqueiracosta2001@gmail.com\" class=\"gmail\">G-mail</a></li> <li><a href=\"https://instagram.com/beasiqueiras_\" class=\"insta\">Instagram</a></li></ul></p>");
-	fprintf(html_arq, "</div></div></div></div>");
+	fprintf(html_arq, "<div class=\"col-12 py-2 mt-3 text-left\"><p>Olá, me chamo Beatriz Siqueira! Estou no 3º Período do curso de Sistemas de Informação. Atualmente trabalho com suporte e desenvolvimento em banco de dados Oracle</p><p>Estudando: PHP, JavaScript, HTML, CSS e Bootstrap!</p></div>");
+	fprintf(html_arq, "<div class=\"col-12 py-2 mt-3 text-left\"><p>Contato: <ul> <li><a href=\"https://github.com/beatrizsiq\" class=\"git\">Github</a></li><li><a href=\"https://instagram.com/beasiqueiras_\" class=\"insta\">Instagram</a></li></ul></p>");
+	fprintf(html_arq, "</div></div></div></div></section>");
 	fprintf(html_arq, "</body></html>");
 
 }
