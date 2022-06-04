@@ -7,6 +7,7 @@
 main()
 {
     setlocale(LC_ALL, "Portuguese");
+    printf("Começando a ordenar!");
     FILE *html_arq;
     int tam1=500, tam2=2500, tam3=5000;
     int vetor1[tam1], vetor2[tam2], vetor3[tam3];
@@ -27,7 +28,7 @@ void head_nav_table(){
     
     html_arq = fopen("index.html", "a");
 
-    fprintf(html_arq, "<!DOCTYPE html><html lang=\"pt-br\"><head><title>Tempo de Ordenação</title><meta charset=\"UTF-8\">");
+    fprintf(html_arq, "<!DOCTYPE html><html lang=\"pt-br\"><head><title>Tempo de Ordenação</title><link rel=\"icon\" type=\"image/x-icon\" href=\"relogio.ico\"><meta charset=\"UTF-8\">");
     fprintf(html_arq, "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\"rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">");
     fprintf(html_arq, "<link rel=\"stylesheet\" href=\"index.css\">");
     fprintf(html_arq, "</head><body	>");
