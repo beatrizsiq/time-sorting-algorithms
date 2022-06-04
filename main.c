@@ -18,7 +18,7 @@ main()
     ordenacao(vetor1, tam1);
     ordenacao(vetor2, tam2);
     ordenacao(vetor3, tam3);
-    section_html();
+    sections_html();
     fclose(html_arq);
 
 }
@@ -41,7 +41,7 @@ void head_nav_table(){
     fprintf(html_arq, "<table class=\"table table-borderless\"><thead><tr ><th scope=\"col\">Posições</th><th scope=\"col\" ><a class=\"table-link\" href = \"https://blog.betrybe.com/tecnologia/bubble-sort-tudo-sobre/\">Bubble Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/selection-sort/\">Selection Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/insertion-sort/\">Insertion Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Shell_sort\">Shell Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Quick_sort\">Quick Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Heap_sort\">Heap Sort</a></th></tr></thead><tbody>");
 }
 
-void section_html(void){
+void sections_html(void){
     FILE *html_arq;
     
     html_arq = fopen("index.html", "a");
