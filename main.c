@@ -33,9 +33,9 @@ void head_nav_table(){
     fprintf(html_arq, "<link rel=\"stylesheet\" href=\"index.css\">");
     fprintf(html_arq, "</head><body	>");
     // nav
-    fprintf(html_arq, "<nav class=\"navbar sticky-top navbar-expand-lg  d-flex \"> <div class=\"container-fluid\"> <a class=\"navbar-brand\" href=\"index.html\">Tempo de Execução</a>");
+    fprintf(html_arq, "<nav class=\"navbar sticky-top navbar-expand-lg  d-flex \"> <div class=\"container-fluid\"> <a class=\"navbar-brand\" href=\"index.html\">Algoritmos de Ordenação</a>");
     fprintf(html_arq, "<div class=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\"> <div class=\"navbar-nav\"> <a class=\"nav-link active\" aria-current=\"page\" href=\"#sobreSection\">Sobre</a> <a class=\"nav-link\" href=\"#criadoraSection\">Criadora</a> </div></div></div></nav>");
-    fprintf(html_arq, "<div class=\" d-flex justify-content-center mt-5\"><h3>Algoritmos de Ordenação</h3></div>");
+    fprintf(html_arq, "<div class=\" d-flex justify-content-center mt-5\"><h3>Tempo de Execução</h3></div>");
     // table
     fprintf(html_arq, "<div class=\"container mt-3 col-12 \" >");
     fprintf(html_arq, "<table class=\"table table-borderless\"><thead><tr ><th scope=\"col\">Posições</th><th scope=\"col\" ><a class=\"table-link\" href = \"https://blog.betrybe.com/tecnologia/bubble-sort-tudo-sobre/\">Bubble Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/selection-sort/\">Selection Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \"https://joaoarthurbm.github.io/eda/posts/insertion-sort/\">Insertion Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Shell_sort\">Shell Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Quick_sort\">Quick Sort</a></th><th scope=\"col\"><a class=\"table-link\" href = \" https://pt.wikipedia.org/wiki/Heap_sort\">Heap Sort</a></th></tr></thead><tbody>");
@@ -115,11 +115,11 @@ void ordenacao(int vetor[], int tam){
     t_heap = (double)(f_heap - i_heap) / CLOCKS_PER_SEC;
 
     fprintf(html_arq, "<tr><th scope=\"row\" class=\"posicoes\">%d</th>", tam);
-    fprintf(html_arq, "<td>%.3lf</td>", t_bubble);
-    fprintf(html_arq, "<td>%.3lf</td>", t_selection);
-    fprintf(html_arq, "<td>%.3lf</td>", t_insertion);
-    fprintf(html_arq, "<td>%.3lf</td>", t_shell);
-    fprintf(html_arq, "<td>%.3lf</td>", t_quick);
-    fprintf(html_arq, "<td>%.3lf</td>", t_heap);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_bubble);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_selection);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_insertion);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_shell);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_quick);
+    fprintf(html_arq, "<td>%.3lfs</td>", t_heap);
     fprintf(html_arq, "</tr>");
 }
